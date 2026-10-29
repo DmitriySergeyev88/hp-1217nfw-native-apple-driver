@@ -4,7 +4,7 @@
 
 Experimental **HP M1217 Native Scan** for HP LaserJet Professional M1217nfw MFP over Ethernet on Apple Silicon. Independent native Marvell2 backend; no Rosetta, HPLIP, or Intel HP libraries.
 
-**0.2.0 is a prerelease.** This is a scanning application, not a replacement printing driver. The installer does not alter CUPS queues, ICA modules, or firmware. Experimental Image Capture integration is excluded because its results list remains unresolved.
+**0.2.1 is a prerelease:** standalone application 0.2.0 plus an optional experimental Image Capture (ICA) package. Printing and firmware are unchanged. ICA saves files, but its separate Scan Results list remains empty; this limitation is not fixed.
 
 ## Features
 
@@ -62,6 +62,25 @@ Quit the app and move it to Trash; restore your backed-up version if needed. Sav
 
 For the user-folder script installation, `python3 scanner/install_app.py rollback` moves only the validated app from `~/Applications` to Trash.
 
+## ICA / Image Capture
+
+Download the separate `HP-M1217-Native-ICA-0.2.1-arm64.pkg` from [Releases](../../releases). It installs only:
+
+- `/Library/Image Capture/Devices/HP M1217 Native ICA.app`;
+- `/Applications/HP M1217 ICA Discovery.app`.
+
+Administrator approval is required. The installer refuses to replace either existing component. To update, quit Image Capture and the old Discovery helper, then move **only these components** to a backup folder. Preserve an older helper in `~/Applications`, but do not run both copies. The legacy HP driver and standalone scanning app are preserved.
+
+Open the new **HP M1217 ICA Discovery** from `/Applications` and enter your scanner's IPv4 address. It stays in the menu bar as **HP Scan**; close the scanning session before changing its address. Launch it manually after login; no automatic startup is installed. Allow Local Network access for ICA and the helper if requested.
+
+In Image Capture, select **HP M1217 Native ICA**. For multi-page ADF output, choose PDF and Combine into single document. Check the selected output folder: the separate Scan Results window can remain empty. Do not open the legacy HP scanner or standalone app simultaneously; the device handles one scanning session.
+
+This package retains the image delivery implementation restored after rolling back the unsuccessful notification change. That progress-indicator regression is excluded. The baseline was hardware-tested on flatbed and ADF, including a two-page PDF. **The new address configuration and this package have not undergone a physical scanning acceptance test.** Signing/notarization limitations are the same as for standalone.
+
+After `sh scanner/build.sh`, run `python3 scanner/ica/build_ica.py` to build. Run `python3 test_ica_installer.py` for offline package checks. The diagnostic `ICAClient` is not installed; invoking it with an output-folder argument starts a physical scan, so it is not an automated offline test.
+
+Rollback: quit Image Capture and Discovery, move only the two listed new components to Trash (administrator approval for the module), and restore backups. Do not remove other Image Capture components. Saved scans and preferences remain.
+
 ## License
 
-MIT. Unofficial project, not affiliated with HP or Apple. No proprietary HP code or binaries are distributed.
+MIT for original code. ICA uses Apple VirtualScanner reference material; its notices and terms are retained in [APPLE_LICENSE.txt](scanner/ica/APPLE_LICENSE.txt). Unofficial project, not affiliated with HP or Apple. No proprietary HP code or binaries are distributed.
