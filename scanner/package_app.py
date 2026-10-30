@@ -17,7 +17,7 @@ info = {
     'CFBundlePackageType': 'APPL',
     'CFBundleShortVersionString': '0.2.0',
     'CFBundleVersion': '2',
-    'LSMinimumSystemVersion': '27.2',
+    'LSMinimumSystemVersion': '11.0',
     'NSHighResolutionCapable': True,
     'NSLocalNetworkUsageDescription': 'Сканирование на HP M1217 в вашей локальной сети.',
 }

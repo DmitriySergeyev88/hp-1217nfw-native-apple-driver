@@ -4,3 +4,8 @@ __pycache__/
 *.asp
 *.settings
 *.log
+
+printing/build/
+
+printing/pclm/build/
+unified/build/

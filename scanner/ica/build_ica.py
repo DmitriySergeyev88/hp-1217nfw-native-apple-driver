@@ -1,4 +1,6 @@
 """Build only isolated ICA artifacts. No installation, publication or scanning."""
+import os
+os.environ.setdefault("MACOSX_DEPLOYMENT_TARGET", "11.0")
 from pathlib import Path
 import hashlib
 import plistlib
@@ -26,7 +28,7 @@ def bundle(name,executable,identifier,extra):
     shutil.copy2(build/executable,mac/executable)
     info={'CFBundleExecutable':executable,'CFBundleIdentifier':identifier,'CFBundleName':name,
           'CFBundlePackageType':'APPL','CFBundleShortVersionString':'0.2.1','CFBundleVersion':'3',
-          'LSMinimumSystemVersion':'27.2','LSBackgroundOnly':True,
+          'LSMinimumSystemVersion':'11.0','LSBackgroundOnly':True,
           'NSLocalNetworkUsageDescription':'Обнаружение и сканирование HP M1217 через Захват изображений.'}
     info.update(extra);
     if info.get('LSUIElement'): info.pop('LSBackgroundOnly',None)
@@ -50,6 +52,10 @@ for app in [module,publisher]:
     run('codesign','--force','--sign','-',str(app));run('codesign','--verify','--deep','--strict',str(app))
     for binary in (app/'Contents/MacOS').iterdir():
         assert subprocess.check_output(['lipo','-archs',str(binary)],text=True).strip()=='arm64'
+
+if os.environ.get('HP_COMPONENTS_ONLY') == '1':
+    print('PASS native ICA bundles; no legacy packages changed')
+    raise SystemExit(0)
 
 pkgroot=build/'pkg-root'
 if pkgroot.exists(): shutil.rmtree(pkgroot)

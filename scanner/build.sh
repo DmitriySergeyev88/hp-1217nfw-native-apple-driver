@@ -1,5 +1,6 @@
 #!/bin/sh
 set -eu
+export MACOSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET:-11.0}
 cd "$(dirname "$0")"
 mkdir -p build
 clang -arch arm64 -Wall -Wextra -Werror -O2 marvell_probe.c -o build/marvell_probe

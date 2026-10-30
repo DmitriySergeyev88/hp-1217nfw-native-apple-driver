@@ -1,0 +1,111 @@
+*PPD-Adobe: "4.3"
+*% PPD created by ipp2ppd (v4:Aug  8 2026)
+*FormatVersion: "4.3"
+*FileVersion: "0.2"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PSVersion: "(3010.000) 0"
+*LanguageLevel: "3"
+*FileSystem: False
+*cupsVersion: 2.0
+*cupsModelNumber: 0
+*cupsSNMPSupplies: False
+*APAirPrint: True
+*APAirPrintVersion: 1.1
+*APURFVersion: 1.1
+*% WARNING missing printer-firmware-name and/or printer-firmware-string-version.
+*% WARNING no printer-strings for the language "en"
+*cupsLanguages: "en"
+*PCFileName: "APHEWLET.PPD"
+*ModelName: "Hewlett-Packard HP LaserJet Professional M1217nfw MFP"
+*Product: (Hewlett-Packard HP LaserJet Professional M1217nfw MFP)
+*ShortNickName: "HP M1217 PCLm 600"
+*Manufacturer: "HP"
+*NickName: "Hewlett-Packard HP LaserJet Professional M1217nfw MFP Native PCLm 600 JPEG"
+*Throughput: 19
+*cupsSingleFile: True
+*cupsManualCopies: True
+*cupsMaxCopies: 1
+*OpenUI *Collate: PickOne
+*OrderDependency: 10 AnySetup *Collate
+*DefaultCollate: False
+*Collate True: "<</Collate true>>setpagedevice"
+*Collate False: "<</Collate false>>setpagedevice"
+*CloseUI: *Collate
+*ColorDevice: False
+*APColorSpaces: true
+*DefaultColorSpace: Gray
+*cupsICCProfile Gray../Grayscale: "/System/Library/ColorSync/Profiles/Generic Gray Gamma 2.2 Profile.icc"
+*OpenUI *ColorModel/Color Mode: PickOne
+*OrderDependency: 10 AnySetup *ColorModel
+*DefaultColorModel: Gray
+*ColorModel Gray/Grayscale: "<</cupsColorSpace 18/cupsBitsPerColor 8/cupsColorOrder 0/cupsCompression 0>>setpagedevice"
+*CloseUI: *ColorModel
+*LandscapeOrientation: Plus90
+*DefaultResolution: 600x600dpi
+*OpenUI *cupsPrintQuality/Quality: PickOne
+*OrderDependency: 10 AnySetup *cupsPrintQuality
+*DefaultcupsPrintQuality: Normal
+*cupsPrintQuality Draft: "<</cupsInteger1 3 /HWResolution[600 600]>>setpagedevice"
+*cupsPrintQuality Normal: "<</cupsInteger1 4 /HWResolution[600 600]>>setpagedevice"
+*cupsPrintQuality High: "<</cupsInteger1 5 /HWResolution[600 600]>>setpagedevice"
+*CloseUI: *cupsPrintQuality
+*cupsBackSide: Normal
+*DefaultOutputOrder: Normal
+*OpenUI *PageSize/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageSize
+*DefaultPageSize: A4
+*PageSize A4: "<</PageSize[595.2756 841.8898]/ImagingBBox null/Orientation 0>>setpagedevice"
+*CloseUI: *PageSize
+*OpenUI *PageRegion/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageRegion
+*DefaultPageRegion: A4
+*PageRegion A4: "<</PageSize[595.2756 841.8898]/ImagingBBox null/Orientation 0>>setpagedevice"
+*CloseUI: *PageRegion
+*DefaultImageableArea: A4
+*DefaultPaperDimension: A4
+*PaperDimension A4: "595.2756 841.8898"
+*ImageableArea A4: "11.9906 11.9906 583.2850 829.8992"
+*OpenUI *MediaType/MediaType: PickOne
+*OrderDependency: 10 AnySetup *MediaType
+*% WARNING Suppressing plain, there is no default translation.
+*MediaType stationery-lightweight: ""
+*% WARNING Suppressing midweight, there is no default translation.
+*% WARNING Suppressing extraHeavy, there is no default translation.
+*MediaType stationery-heavyweight: ""
+*MediaType transparency: ""
+*MediaType labels: ""
+*MediaType stationery-letterhead: ""
+*MediaType envelope: ""
+*MediaType stationery-preprinted: ""
+*MediaType stationery-prepunched: ""
+*% WARNING Suppressing colored, there is no default translation.
+*MediaType bond: ""
+*MediaType recycled: ""
+*% WARNING Suppressing rough, there is no default translation.
+*% WARNING Suppressing vellum, there is no default translation.
+*MediaType any/Any: ""
+*DefaultMediaType: any
+*CloseUI: *MediaType
+*APPrinterPreset DraftGray_with_Paper_Auto-Detect/Black and White - Draft: "
+	*cupsPrintQuality Draft
+	*ColorModel Gray
+	com.apple.print.preset.graphicsType General
+	com.apple.print.preset.quality draft
+	com.apple.print.preset.media-front-coating autodetect
+	com.apple.print.preset.output-mode monochrome"
+*End
+*APPrinterPreset Gray_with_Paper_Auto-Detect/Black and White: "
+	*cupsPrintQuality Normal
+	*ColorModel Gray
+	com.apple.print.preset.graphicsType General
+	com.apple.print.preset.quality mid
+	com.apple.print.preset.media-front-coating autodetect
+	com.apple.print.preset.output-mode monochrome"
+*End
+
+*cupsFilter2: "application/pdf application/PCLm 10 /Library/Printers/HPNative1217PCLm/Filters/hp-m1217-pclm"
+
+*APICADriver: True
+*APScanAppBundleID: "com.apple.ImageCaptureApp"
+*APScannerModulePath: "/Library/Image Capture/Devices/HP M1217 Native ICA.app"
